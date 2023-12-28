@@ -7,10 +7,14 @@ services:
       - 25565:25565
     environment:
       EULA: "TRUE"
-      MEMORY: "800M"
+      MEMORY: "650M"
     tty: true
     stdin_open: true
     restart: unless-stopped
     volumes:
-    # attach a directory relative to the directory containing this compose file
-    - ./minecraft-data:/data
+      # attach a directory relative to the directory containing this compose file
+      - ./minecraft-data:/data
+    deploy:
+      resources:
+        limits:
+          cpus: '0.97'
